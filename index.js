@@ -16,15 +16,14 @@ app.get('/news-categories', (req, res) => {
     res.send(categories);
 });
 
-app.get('/category/:id', (req, res)=>{
+app.get('/category/:id', (req, res) => {
     const id = req.params.id;
-    if (id === '08') {
-        res.send(news);
-    }
-    else{
-        const category_news = news.filter(n => n.category_id === id);
-        res.send(category_news);
-    }
+    const categoryNews = news.filter(n => n.category_id === id);
+    res.send(categoryNews);
+})
+
+app.get('/news', (req, res) => {
+    res.send(news);
 })
 
 app.get('/news/:id', (req, res) => {
